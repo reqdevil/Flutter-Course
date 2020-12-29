@@ -1,4 +1,6 @@
 import 'package:egitim/color_layout.dart';
+import 'package:egitim/pages/first_screen.dart';
+import 'package:egitim/pages/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,12 +16,11 @@ class Layouts extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Color Layouts!"),
-        ),
-        body: ColorLayout(),
-      ),
+      initialRoute: "/",
+      routes: {
+        "/settings": (context) => SettingsScreen(),
+      },
+      home: FirstScreen()
     );
   }
 }
