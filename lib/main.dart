@@ -1,4 +1,4 @@
-import 'package:egitim/color_layout.dart';
+import 'package:egitim/pages/main_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,12 +14,7 @@ class Layouts extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Color Layouts!"),
-        ),
-        body: ColorLayout(),
-      ),
+      home: MainScreen(),
     );
   }
 }
