@@ -51,7 +51,7 @@ class _ThirdRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(top: 10),
       child: Row(
         children: [
           Expanded(
@@ -92,22 +92,49 @@ class _ThirdRow extends StatelessWidget {
   }
 }
 
+class _AdjustableBlock extends StatelessWidget {
+  final double widthFactor;
+  _AdjustableBlock(this.widthFactor);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: _CELL_PADDING),
+      child: Row(
+        children: [
+          Expanded(
+            child: FractionallySizedBox(
+              alignment: Alignment.centerLeft,
+              widthFactor: widthFactor,
+              child: Container(color: Colors.red, height: 20),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
 class ColorLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-          padding: EdgeInsets.all(25),
-          color: Colors.grey[300],
-          width: double.infinity,
-          height: double.infinity,
-          child: Column(
-            children: [
-              _FirstRow(),
-              _SecondRow(),
-              _ThirdRow(),
-            ],
-          )),
+        padding: EdgeInsets.all(25),
+        color: Colors.grey[300],
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          children: [
+            _FirstRow(),
+            _SecondRow(),
+            _ThirdRow(),
+            _AdjustableBlock(1.0),
+            _AdjustableBlock(0.75),
+            _AdjustableBlock(0.5),
+          ],
+        )
+      ),
     );
   }
 }
